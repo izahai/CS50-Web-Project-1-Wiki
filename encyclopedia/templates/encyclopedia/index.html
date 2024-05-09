@@ -5,7 +5,11 @@
 {% endblock %}
 
 {% block body %}
-    <h1>All Pages</h1>
+    {% if q %}
+        <h1>Search Results for "{{ q }}"</h1>
+    {% else %}
+        <h1>All Pages</h1>
+    {% endif %}
     <ul>
         {% for entry in entries %}
             <li><a href="{% url 'encyclopedia:title' entry %}">{{ entry }}</a></li> 
